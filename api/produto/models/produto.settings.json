@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "produtos",
+  "info": {
+    "name": "produto",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 32
+    },
+    "descricaoCurta": {
+      "type": "text",
+      "required": true,
+      "maxLength": 128
+    },
+    "descricaoLonga": {
+      "type": "richtext"
+    },
+    "preco": {
+      "type": "decimal",
+      "default": 0,
+      "required": true
+    },
+    "imagemPrincipal": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "galeriaProduto": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nome",
+      "required": true
+    },
+    "categoria": {
+      "model": "categoria",
+      "via": "produtos"
+    },
+    "marca": {
+      "model": "marca",
+      "via": "produtos"
+    },
+    "sub_categorias": {
+      "collection": "sub-categoria",
+      "via": "produtos",
+      "dominant": true
+    },
+    "fichaTecnica": {
+      "type": "richtext",
+      "required": true,
+      "private": false
+    }
+  }
+}
