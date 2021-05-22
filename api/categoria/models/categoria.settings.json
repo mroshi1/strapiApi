@@ -23,8 +23,18 @@
       "required": true
     },
     "produtos": {
-      "via": "categoria",
-      "collection": "produto"
+      "collection": "produto",
+      "via": "categoria"
+    },
+    "icone": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
     }
   }
 }
