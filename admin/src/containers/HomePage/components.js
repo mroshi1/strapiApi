@@ -134,7 +134,7 @@ const ALink = styled.a`
   ${({ type }) =>
     type === 'blog' &&
     css`
-      background-color: #1D011D;
+      background-color: #6A1269;
     `}
 `;
 
