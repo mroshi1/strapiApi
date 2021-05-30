@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const Block = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ const Block = styled.div`
       top: 0;
       left: 0;
       border-radius: 0.3rem;
-      content: '';
+      content: "";
       opacity: 0.1;
       background: #ffffff;
     }
@@ -35,7 +35,7 @@ const Block = styled.div`
   }
   #mainHeader {
     &:after {
-      content: '';
+      content: "";
       width: 100%;
       height: 3px;
       margin-top: 4px;
@@ -65,7 +65,7 @@ const P = styled.p`
   max-width: 1000px;
   padding-top: 10px;
   padding-right: 30px;
-  color: #292B2C;
+  color: #292b2c;
   font-size: 14px;
   b {
     font-weight: 600;
@@ -84,11 +84,11 @@ const ALink = styled.a`
   font-size: 13px;
 
   &:before {
-    content: '\f105';
+    content: "\f105";
 
     font-weight: 600;
     margin-right: 10px;
-    font-family: 'FontAwesome';
+    font-family: "FontAwesome";
   }
 
   &:hover,
@@ -105,13 +105,13 @@ const ALink = styled.a`
     top: 0;
     left: 0;
     border-radius: 0.3rem;
-    content: '';
+    content: "";
     opacity: 0.1;
     background: #ffffff;
   }
 
   ${({ type }) =>
-    type === 'blog'
+    type === "blog"
       ? css`
           padding-left: 20px;
           margin-top: 19px;
@@ -139,9 +139,9 @@ const ALink = styled.a`
         `}
 
   ${({ type }) =>
-    type === 'blog' &&
+    type === "blog" &&
     css`
-      background-color: #6A1269;
+      background-color: #6a1269;
     `}
 `;
 
@@ -158,7 +158,7 @@ const SocialLinkWrapper = styled.div`
   font-weight: 500;
   a {
     display: block;
-    width: 100%;
+    width: 250px;
     height: 100%;
     color: #333740 !important;
     text-decoration: none;
