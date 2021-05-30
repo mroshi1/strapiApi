@@ -1,11 +1,28 @@
 import React, { memo, useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { LoadingIndicatorPage } from 'strapi-helper-plugin';
+import { get, upperFirst } from 'lodash';
+import { auth, LoadingIndicatorPage } from 'strapi-helper-plugin';
 import PageTitle from '../../components/PageTitle';
 import { useModels } from '../../hooks';
 
 import useFetch from './hooks';
-import { ALink, Block, Container, P } from './components';
+import { ALink, Block, Container, P, Separator } from './components';
+import SocialLink from './SocialLink';
+
+const SOCIAL_LINKS = [
+  {
+    name: 'GitHub: João Fernando',
+    link: 'https://github.com/joaofbrigido/',
+  },
+  {
+    name: 'GitHub: Rafael',
+    link: 'https://github.com/mroshi1/',
+  },
+  {
+    name: 'GitHub: Vitor Hugo',
+    link: 'https://github.com/VitorHUMoreira/',
+  },
+];
 
 const HomePage = ({ history: { push } }) => {
   const { error, isLoading, posts } = useFetch();
@@ -32,10 +49,15 @@ const HomePage = ({ history: { push } }) => {
     return <LoadingIndicatorPage />;
   }
 
+  const headerId = hasAlreadyCreatedContentTypes
+    ? 'HomePage.greetings'
+    : 'app.components.HomePage.welcome';
+  const username = get(auth.getUserInfo(), 'firstname', '');
   const linkProps = hasAlreadyCreatedContentTypes
     ? {
-        id: 'Ir para o Errera Informática',
+        id: 'app.components.HomePage.button.blog',
         href: 'http://localhost:3000/',
+        onClick: () => {},
         type: 'blog',
         target: '_blank',
       }
@@ -55,7 +77,14 @@ const HomePage = ({ history: { push } }) => {
         <div className="row">
           <div className="col-lg-8 col-md-12">
             <Block>
-              <h2 id="mainHeader">Bem vindo ao Errera Informática!</h2>
+              <FormattedMessage
+                id={headerId}
+                values={{
+                  name: upperFirst(username),
+                }}
+              >
+                {msg => <h2 id="mainHeader">{msg}</h2>}
+              </FormattedMessage>
               <P>Projeto desenvolvido para a disciplina: Projeto de Computação I.</P>
               <P>Tema: Criação de um E-commerce e integração com ferramenta administrativa.</P>
               <P>Equipe: João Fernando do Amaral Brigido, Rafael de Oliveira Garcia e Vitor Hugo Ulson Moreira.</P>
@@ -72,6 +101,30 @@ const HomePage = ({ history: { push } }) => {
                   </ALink>
                 )}
               </FormattedMessage>
+            </Block>
+          </div>
+
+          <div className="col-md-12 col-lg-4">
+            <Block style={{ paddingRight: 30, paddingBottom: 0 }}>
+              <FormattedMessage id="HomePage.community">{msg => <h2>{msg}</h2>}</FormattedMessage>
+              <FormattedMessage id="app.components.HomePage.community.content">
+                {content => <P style={{ marginTop: 7, marginBottom: 0 }}>{content}</P>}
+              </FormattedMessage>
+
+              <Separator style={{ marginTop: 18 }} />
+              <div
+                className="row social-wrapper"
+                style={{
+                  display: 'grid',
+                  margin: 0,
+                  marginTop: 36,
+                  marginLeft: -15,
+                }}
+              >
+                {SOCIAL_LINKS.map((value, key) => (
+                  <SocialLink key={key} {...value} />
+                ))}
+              </div>
             </Block>
           </div>
         </div>
