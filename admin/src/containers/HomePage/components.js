@@ -1,4 +1,3 @@
-/* eslint-disable */
 import styled, { css } from 'styled-components';
 
 const Block = styled.div`
@@ -6,7 +5,7 @@ const Block = styled.div`
   position: relative;
   margin-bottom: 34px;
   background: #ffffff;
-  padding: 30px 30px 30px 30px;
+  padding: 19px 30px 30px 30px;
   box-shadow: 4px 4px 4px 0 #e3e9f3;
   border-radius: 3px;
   line-height: 18px;
@@ -45,6 +44,14 @@ const Block = styled.div`
       background: #f0b41e;
     }
   }
+
+  .social-wrapper {
+    span {
+      display: inline-block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
 `;
 
 const Container = styled.div`
@@ -59,7 +66,7 @@ const P = styled.p`
   padding-top: 10px;
   padding-right: 30px;
   color: #292B2C;
-  font-size: 16px;
+  font-size: 14px;
   b {
     font-weight: 600;
   }
@@ -138,4 +145,43 @@ const ALink = styled.a`
     `}
 `;
 
-export { ALink, Block, Container, P };
+const Separator = styled.div`
+  height: 2px;
+  background-color: #f1f1f1;
+`;
+
+const SocialLinkWrapper = styled.div`
+  position: relative;
+  height: 40px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #333740 !important;
+    text-decoration: none;
+    line-height: 18px;
+    img,
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    img {
+      height: 24px;
+      width: 24px;
+      object-fit: contain;
+    }
+    span {
+      width: calc(100% - 24px);
+      padding-left: 11px;
+      font-weight: 600;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`;
+
+export { ALink, Block, Container, P, Separator, SocialLinkWrapper };
