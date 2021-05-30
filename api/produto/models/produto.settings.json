@@ -73,6 +73,11 @@
       "type": "richtext",
       "required": true,
       "private": false
+    },
+    "quantidade": {
+      "type": "integer",
+      "required": true,
+      "default": 1
     }
   }
 }

@@ -24,6 +24,10 @@
     "produtos": {
       "via": "marca",
       "collection": "produto"
+    },
+    "categorias": {
+      "via": "marcas",
+      "collection": "categoria"
     }
   }
 }

@@ -35,6 +35,15 @@
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}
+    },
+    "sub_categorias": {
+      "collection": "sub-categoria",
+      "via": "categoria"
+    },
+    "marcas": {
+      "collection": "marca",
+      "via": "categorias",
+      "dominant": true
     }
   }
 }

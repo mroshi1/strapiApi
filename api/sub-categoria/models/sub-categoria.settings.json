@@ -24,6 +24,10 @@
     "produtos": {
       "via": "sub_categorias",
       "collection": "produto"
+    },
+    "categoria": {
+      "via": "sub_categorias",
+      "model": "categoria"
     }
   }
 }
